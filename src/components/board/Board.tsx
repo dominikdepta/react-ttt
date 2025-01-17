@@ -77,6 +77,7 @@ export const Board = () => {
         {currentMove &&
           currentMove.squares.map((value, i) => (
             <Square
+              key={`${value}-${i}`}
               onClick={handleSquareClick(i)}
               disabled={isGameEnded}
               isHighlighted={
