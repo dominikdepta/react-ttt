@@ -1,10 +1,10 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { History } from "../history";
 import { Reset } from "../reset";
 import { Square } from "../square";
 import styles from "./Board.module.css";
-import { Move } from "./types";
 import { movesInitialState, winnerLines } from "./constants";
+import { Move } from "./types";
 
 const checkWinner = (move: Move): number[] | undefined =>
   winnerLines.find(
@@ -31,7 +31,7 @@ export const Board = () => {
       return;
     }
 
-    setMoves([
+    const newMoves: Move[] = [
       ...(movePos <= moves.length ? moves.slice(0, movePos + 1) : moves),
       {
         squares: currentMove.squares.map((value, i) =>
@@ -39,7 +39,10 @@ export const Board = () => {
         ),
         nextMove: currentMove.nextMove === "x" ? "o" : "x",
       },
-    ]);
+    ];
+
+    setMoves(newMoves);
+    setMovePos(newMoves.length - 1);
   };
 
   const handleResetClick = () => {
@@ -49,10 +52,6 @@ export const Board = () => {
   const handleHistorySliderChange = (e: ChangeEvent<HTMLInputElement>) => {
     setMovePos(Number(e.target.value));
   };
-
-  useEffect(() => {
-    setMovePos(moves.length - 1);
-  }, [moves]);
 
   return (
     <div className={styles.wrapper}>
