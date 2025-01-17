@@ -1,1 +1,6 @@
-export type Move = null | 'x' | 'o';
+export type MoveType = "x" | "o";
+
+export interface Move {
+  nextMove: MoveType;
+  squares: Array<null | MoveType>;
+}

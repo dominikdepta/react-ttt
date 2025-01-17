@@ -8,7 +8,8 @@
   grid-template-rows: repeat(3, 64px);
 }
 
-.reset {
+.reset,
+.history {
   margin-top: 16px;
   width: 100%;
 }
