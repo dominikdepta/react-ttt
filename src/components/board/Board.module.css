@@ -1,0 +1,14 @@
+.wrapper {
+  width: fit-content
+}
+
+.squares {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  grid-template-rows: repeat(3, 64px);
+}
+
+.reset {
+  margin-top: 16px;
+  width: 100%;
+}

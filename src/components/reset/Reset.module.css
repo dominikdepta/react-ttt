@@ -1,0 +1,7 @@
+.wrapper {
+  border: 1px solid var(--color-light);
+  padding: 12px 6px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
