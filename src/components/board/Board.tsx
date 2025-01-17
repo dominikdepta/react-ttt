@@ -4,24 +4,7 @@ import { Reset } from "../reset";
 import { Square } from "../square";
 import styles from "./Board.module.css";
 import { Move } from "./types";
-
-const movesInitialState: Move[] = [
-  {
-    nextMove: "x",
-    squares: [null, null, null, null, null, null, null, null, null],
-  },
-];
-
-const winnerLines: number[][] = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-];
+import { movesInitialState, winnerLines } from "./constants";
 
 const checkWinner = (move: Move): number[] | undefined =>
   winnerLines.find(
