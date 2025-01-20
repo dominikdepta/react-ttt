@@ -22,6 +22,13 @@ export const Board = () => {
   const winnerSquares = checkWinner(currentMove);
   const isGameEnded = !!winnerSquares || movePos == 9;
 
+  const updateMoves = (newMoves: Move[]): Move[] => {
+    setMoves(newMoves);
+    setMovePos(newMoves.length - 1);
+
+    return newMoves;
+  };
+
   const handleSquareClick = (squareIndex: number) => () => {
     if (
       !currentMove ||
@@ -41,12 +48,11 @@ export const Board = () => {
       },
     ];
 
-    setMoves(newMoves);
-    setMovePos(newMoves.length - 1);
+    updateMoves(newMoves);
   };
 
   const handleResetClick = () => {
-    setMoves(movesInitialState);
+    updateMoves(movesInitialState);
   };
 
   const handleHistorySliderChange = (e: ChangeEvent<HTMLInputElement>) => {
