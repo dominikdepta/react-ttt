@@ -66,6 +66,7 @@ export const Board = () => {
           currentMove.squares.map((value, i) => (
             <Square
               key={`${value}-${i}`}
+              aria-label={`Square ${i + 1}`}
               onClick={handleSquareClick(i)}
               disabled={isGameEnded}
               isHighlighted={
@@ -83,6 +84,7 @@ export const Board = () => {
       </Reset>
 
       <History
+        aria-label="Moves timeline"
         className={styles.history}
         min={0}
         max={moves.length - 1}
