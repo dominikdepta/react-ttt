@@ -12,7 +12,7 @@ const checkWinner = (move: Move): number[] | undefined =>
       move &&
       move.squares[a] &&
       move.squares[a] === move.squares[b] &&
-      move.squares[b] === move.squares[c]
+      move.squares[b] === move.squares[c],
   );
 
 export const Board = () => {
@@ -42,7 +42,7 @@ export const Board = () => {
       ...(movePos <= moves.length ? moves.slice(0, movePos + 1) : moves),
       {
         squares: currentMove.squares.map((value, i) =>
-          i === squareIndex ? currentMove.nextMove : value
+          i === squareIndex ? currentMove.nextMove : value,
         ),
         nextMove: currentMove.nextMove === "x" ? "o" : "x",
       },

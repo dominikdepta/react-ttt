@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import squareStyles from '../square/Square.module.css';
+import squareStyles from "../square/Square.module.css";
 import { Board } from "./Board";
 
 const getSquare = (num: number) => screen.getByLabelText(`Square ${num}`);
@@ -100,10 +100,10 @@ describe("<Board />", () => {
     await user.click(squares[1]);
     expect(getSquare(2)).toHaveTextContent("o");
 
-    fireEvent.change(getHistorySlider(), { target: { value: 1 }})
+    fireEvent.change(getHistorySlider(), { target: { value: 1 } });
     expect(getSquare(2)).toHaveTextContent("");
 
-    fireEvent.change(getHistorySlider(), { target: { value: 2 }})
+    fireEvent.change(getHistorySlider(), { target: { value: 2 } });
     expect(getSquare(2)).toHaveTextContent("o");
   });
 
@@ -117,7 +117,7 @@ describe("<Board />", () => {
     await user.click(squares[1]);
     await user.click(squares[2]);
 
-    fireEvent.change(getHistorySlider(), { target: { value: 0 }})
+    fireEvent.change(getHistorySlider(), { target: { value: 0 } });
     await user.click(getSquare(4));
 
     expect(slider).toHaveAttribute("max", "1");

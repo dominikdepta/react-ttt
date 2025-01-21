@@ -1,11 +1,11 @@
 import { describe, expect, test } from "vitest";
-import { render, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react";
 import { Square } from "./Square";
 
-describe('<Square />', () => {
+describe("<Square />", () => {
   test("rendering button with given content", () => {
-    render(<Square>test content</Square>)
+    render(<Square>test content</Square>);
 
-    expect(screen.getByRole('button')).toHaveTextContent('test content');
-  })
-})
+    expect(screen.getByRole("button")).toHaveTextContent("test content");
+  });
+});
